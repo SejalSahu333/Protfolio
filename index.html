@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Sejal Sahu — Embedded Systems Engineer | Firmware, RTOS, STM32, IoT, PCB Design"/>
+  <title>Sejal Sahu | Embedded Systems Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav id="navbar">
+    <div class="nav-logo"><span class="lb">&lt;</span>Sejal<span class="lb">/&gt;</span></div>
+    <ul class="nav-links">
+      <li><a href="#hero"     class="nav-link active">Home</a></li>
+      <li><a href="#about"    class="nav-link">About</a></li>
+      <li><a href="#skills"   class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#contact"  class="nav-link">Contact</a></li>
+    </ul>
+    <a href="mailto:sejalsahu705@gmail.com" class="btn btn-nav">Hire Me</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <canvas id="circuit-canvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-tag" id="typing-tag">// Hello, World!</p>
+      <h1 class="hero-title">
+        Hi, I'm <span class="gradient-text">Sejal Sahu</span>
+      </h1>
+      <p class="hero-role">Embedded Systems Engineer</p>
+      <p class="hero-sub">
+        Crafting firmware &amp; bringing hardware to life — from bare-metal STM32 drivers
+        to dual-axis solar trackers and IoT dashboards.
+      </p>
+      <div class="hero-chips">
+        <span class="chip">C / C++</span>
+        <span class="chip">STM32</span>
+        <span class="chip">RTOS</span>
+        <span class="chip">Arduino / ESP32</span>
+        <span class="chip">PCB Design</span>
+        <span class="chip">MATLAB</span>
+        <span class="chip">IoT</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact"  class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-scroll"><div class="scroll-dot"></div></div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 01. About</span>
+        <h2>Who I Am</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-img-wrap">
+          <div class="about-img-ring">
+            <img src="assets/profile.png" alt="Sejal Sahu" class="about-img"/>
+          </div>
+          <div class="about-badge"><span>⚡</span> Open to Opportunities</div>
+        </div>
+        <div class="about-text">
+          <p>
+            I'm <strong>Sejal Sahu</strong>, a passionate Embedded Systems Engineer based in
+            <strong>Jabalpur, Madhya Pradesh, India</strong>, currently interning at
+            <strong>AIMS Interactive Pvt Ltd</strong>. I hold a B.Tech in
+            <strong>Electrical & Electronics Engineering</strong> from Baderia Global Institute
+            (CGPA 7.40, 2025).
+          </p>
+          <p>
+            I specialise in firmware development, real-time systems, and hardware-software
+            co-design — from TFT LCD graphical interfaces on STM32 to battery management
+            systems modelled in MATLAB/Simulink. I love building things that work at the
+            intersection of hardware and software.
+          </p>
+          <p>
+            Beyond engineering, I am an NCC <strong>Under Officer</strong> ("C" Certificate)
+            and a <strong>Madhya Pradesh Home Guard</strong> volunteer — values of discipline
+            and service run through everything I do.
+          </p>
+          <div class="about-stats">
+            <div class="stat"><span class="stat-num" data-target="1">0</span><span class="stat-label">Year Exp.</span></div>
+            <div class="stat"><span class="stat-num" data-target="5">0</span><span class="stat-label">Projects</span></div>
+            <div class="stat"><span class="stat-num" data-target="7">0</span><span class="stat-label">MCU Platforms</span></div>
+            <div class="stat"><span class="stat-num" data-target="2">0</span><span class="stat-label">Certifications</span></div>
+          </div>
+          <div class="about-ctas">
+            <a href="mailto:sejalsahu705@gmail.com" class="btn btn-primary">Email Me ✉️</a>
+            <a href="https://github.com/SejalSahu93/" target="_blank" class="btn btn-outline">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section id="experience" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 02. Experience</span>
+        <h2>Work Experience</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div>
+                <h3>Embedded Systems Engineer Intern</h3>
+                <p class="tl-company">AIMS Interactive Pvt Ltd · Jabalpur, MP</p>
+              </div>
+              <span class="tl-date">June 2025 – Present</span>
+            </div>
+            <ul class="tl-list">
+              <li>Designed and optimised embedded software for real-time monitoring and automation systems, improving overall system efficiency by <strong>30%</strong> through performance tuning and reliable data processing.</li>
+              <li>Contributed to firmware validation, system calibration, and hardware-software integration, reducing response delays by <strong>25%</strong> and improving stability across multiple embedded applications.</li>
+              <li>Collaborated in an agile engineering team to support rapid prototype development, troubleshooting, and deployment of industrial automation solutions.</li>
+            </ul>
+            <div class="tl-chips">
+              <span>C / C++</span><span>Firmware</span><span>Automation</span><span>Agile</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 03. Skills</span>
+        <h2>Tech Stack</h2>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <div class="skill-icon">💻</div>
+          <h3>Programming Languages</h3>
+          <div class="skill-bars">
+            <div class="skill-bar-item"><span>C / C++</span><div class="bar"><div class="bar-fill" data-pct="92"></div></div></div>
+            <div class="skill-bar-item"><span>Python</span><div class="bar"><div class="bar-fill" data-pct="72"></div></div></div>
+            <div class="skill-bar-item"><span>MATLAB</span><div class="bar"><div class="bar-fill" data-pct="80"></div></div></div>
+            <div class="skill-bar-item"><span>HTML / CSS / JS</span><div class="bar"><div class="bar-fill" data-pct="70"></div></div></div>
+            <div class="skill-bar-item"><span>SQL</span><div class="bar"><div class="bar-fill" data-pct="60"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🔧</div>
+          <h3>Embedded Platforms</h3>
+          <div class="tag-cloud">
+            <span class="tag">STM32 Nucleo-F401RE</span>
+            <span class="tag">Arduino</span>
+            <span class="tag">ESP32</span>
+            <span class="tag">AVR / ATmega</span>
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">8051</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">⚙️</div>
+          <h3>Technologies</h3>
+          <div class="tag-cloud">
+            <span class="tag">RTOS</span>
+            <span class="tag">PCB Design</span>
+            <span class="tag">IoT</span>
+            <span class="tag">SPI / I2C / UART</span>
+            <span class="tag">MPPT</span>
+            <span class="tag">BMS</span>
+            <span class="tag">Simulink</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🛠️</div>
+          <h3>Tools &amp; IDEs</h3>
+          <div class="tag-cloud">
+            <span class="tag">VS Code</span>
+            <span class="tag">Proteus</span>
+            <span class="tag">KiCad</span>
+            <span class="tag">Fusion 360</span>
+            <span class="tag">MATLAB / Simulink</span>
+            <span class="tag">GitHub</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">📚</div>
+          <h3>Coursework</h3>
+          <div class="tag-cloud">
+            <span class="tag">Embedded Systems Design</span>
+            <span class="tag">Microprocessors &amp; MCUs</span>
+            <span class="tag">RTOS</span>
+            <span class="tag">Digital Electronics</span>
+            <span class="tag">Embedded C</span>
+            <span class="tag">Data Structures</span>
+            <span class="tag">Computer Architecture</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🏅</div>
+          <h3>Certifications</h3>
+          <div class="cert-list">
+            <div class="cert-item">
+              <span class="cert-name">MATLAB Onramp</span>
+              <span class="cert-issuer">MathWorks · Apr 2026</span>
+            </div>
+            <div class="cert-item">
+              <span class="cert-name">Programming Essentials in Python</span>
+              <span class="cert-issuer">Cisco Networking Academy · Jun 2022</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 04. Projects</span>
+        <h2>Featured Work</h2>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card" id="proj-1">
+          <div class="project-header">
+            <span class="project-tag">STM32 · SPI · TFT</span>
+            <div class="project-links">
+              <a href="https://github.com/SejalSahu93/" target="_blank" title="GitHub" class="icon-link">⌥</a>
+            </div>
+          </div>
+          <h3>STM32 TFT LCD Graphics Interface</h3>
+          <p>Interfaced a 3.5-inch TFT LCD with STM32 Nucleo-F401RE for graphical display and embedded GUI applications using SPI communication.</p>
+          <div class="project-meta">March 2026</div>
+          <div class="project-chips">
+            <span>C++</span><span>STM32</span><span>SPI</span><span>TFT LCD</span>
+          </div>
+        </div>
+
+        <div class="project-card" id="proj-2">
+          <div class="project-header">
+            <span class="project-tag">MATLAB · IoT · GUI</span>
+            <div class="project-links">
+              <a href="https://github.com/SejalSahu93/" target="_blank" title="GitHub" class="icon-link">⌥</a>
+            </div>
+          </div>
+          <h3>IoT Sensor Data Visualization Dashboard</h3>
+          <p>Created a MATLAB GUI for real-time monitoring and graphical analysis of embedded sensor data, enabling live charting of IoT device telemetry.</p>
+          <div class="project-meta">February 2026</div>
+          <div class="project-chips">
+            <span>C++</span><span>MATLAB</span><span>IoT</span><span>GUI</span>
+          </div>
+        </div>
+
+        <div class="project-card" id="proj-3">
+          <div class="project-header">
+            <span class="project-tag">Arduino · ESP32 · Servo</span>
+            <div class="project-links">
+              <a href="https://github.com/SejalSahu93/" target="_blank" title="GitHub" class="icon-link">⌥</a>
+            </div>
+          </div>
+          <h3>Dual Axis Solar Tracker System</h3>
+          <p>Designed a dual-axis solar tracking system using LDR sensors and servo motors to automatically follow sunlight on both horizontal and vertical axes for improved solar energy efficiency.</p>
+          <div class="project-meta">April 2025</div>
+          <div class="project-chips">
+            <span>C++</span><span>Arduino</span><span>ESP32</span><span>LDR</span><span>Servo</span>
+          </div>
+        </div>
+
+        <div class="project-card" id="proj-4">
+          <div class="project-header">
+            <span class="project-tag">MPPT · IoT · Web</span>
+            <div class="project-links">
+              <a href="https://github.com/SejalSahu93/" target="_blank" title="GitHub" class="icon-link">⌥</a>
+            </div>
+          </div>
+          <h3>Real-Time Weather Monitoring Device</h3>
+          <p>Designed an MPPT-based solar charging system for efficient power tracking and battery charging optimisation with a web-accessible monitoring dashboard.</p>
+          <div class="project-meta">August 2024</div>
+          <div class="project-chips">
+            <span>C++</span><span>HTML/CSS/JS</span><span>MPPT</span><span>Solar</span>
+          </div>
+        </div>
+
+        <div class="project-card" id="proj-5">
+          <div class="project-header">
+            <span class="project-tag">MATLAB · Simulink · EV</span>
+            <div class="project-links">
+              <a href="https://github.com/SejalSahu93/" target="_blank" title="GitHub" class="icon-link">⌥</a>
+            </div>
+          </div>
+          <h3>Battery Management System (BMS) Modelling</h3>
+          <p>Designed and simulated battery charging, discharging, SOC estimation, and thermal monitoring for EV applications using MATLAB/Simulink.</p>
+          <div class="project-meta">January 2024</div>
+          <div class="project-chips">
+            <span>MATLAB</span><span>Simulink</span><span>BMS</span><span>EV</span><span>SOC</span>
+          </div>
+        </div>
+
+        <div class="project-card proj-achievement" id="proj-6">
+          <div class="project-header">
+            <span class="project-tag">Achievement</span>
+          </div>
+          <h3>🎖️ NCC Under Officer</h3>
+          <p>Awarded the NCC "C" Certificate with the rank of <strong>Under Officer</strong> in the National Cadet Corps. Also volunteered with <strong>Madhya Pradesh Home Guard</strong>, contributing to community service.</p>
+          <div class="project-chips">
+            <span>NCC "C" Certificate</span><span>Leadership</span><span>MP Home Guard</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ── -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 05. Education</span>
+        <h2>Academic Background</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-info">
+            <h3>B.Tech — Electrical &amp; Electronics Engineering</h3>
+            <p class="edu-inst">Baderia Global Institute of Engineering And Management</p>
+            <p class="edu-loc">Jabalpur, Madhya Pradesh</p>
+            <div class="edu-meta">
+              <span class="edu-year">2021 – 2025</span>
+              <span class="edu-score">CGPA: <strong>7.40</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">📘</div>
+          <div class="edu-info">
+            <h3>Higher Secondary (HSC) — Class XII</h3>
+            <p class="edu-inst">B.S.S Girl's High Secondary School</p>
+            <p class="edu-loc">Jabalpur, Madhya Pradesh</p>
+            <div class="edu-meta">
+              <span class="edu-year">2021</span>
+              <span class="edu-score">Score: <strong>76.8%</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">📗</div>
+          <div class="edu-info">
+            <h3>Secondary (SSC) — Class X</h3>
+            <p class="edu-inst">B.S.S Girl's High Secondary School</p>
+            <p class="edu-loc">Jabalpur, Madhya Pradesh</p>
+            <div class="edu-meta">
+              <span class="edu-year">2019</span>
+              <span class="edu-score">Score: <strong>74%</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 06. Contact</span>
+        <h2>Let's Connect</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>Whether you have a project in mind, an opportunity to discuss, or just want to talk embedded systems — I'd love to hear from you!</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <span class="ci-icon">📧</span>
+              <a href="mailto:sejalsahu705@gmail.com">sejalsahu705@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <span class="ci-icon">📞</span>
+              <a href="tel:+919685644119">+91 96856 44119</a>
+            </div>
+            <div class="contact-item">
+              <span class="ci-icon">💼</span>
+              <a href="https://linkedin.com/in/sejal-sahu-9280b0287/" target="_blank">linkedin.com/in/sejal-sahu-9280b0287</a>
+            </div>
+            <div class="contact-item">
+              <span class="ci-icon">🐙</span>
+              <a href="https://github.com/SejalSahu93/" target="_blank">github.com/SejalSahu93</a>
+            </div>
+            <div class="contact-item">
+              <span class="ci-icon">📍</span>
+              <span>Kanchghar, Jabalpur, Madhya Pradesh, India</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Your Name" required/>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="your@email.com" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Project / Opportunity / Collaboration"/>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Tell me about your project or opportunity..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="send-btn">Send Message ✉️</button>
+          <div id="form-feedback" class="form-feedback"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-logo"><span class="lb">&lt;</span>Sejal<span class="lb">/&gt;</span></p>
+      <p class="footer-copy">© 2026 Sejal Sahu · Embedded Systems Engineer · Jabalpur, India</p>
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="mailto:sejalsahu705@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+  <script src="main.js"></script>
+</body>
+</html>
