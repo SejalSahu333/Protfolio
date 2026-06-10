@@ -198,7 +198,8 @@ filterBtns.forEach(btn => {
     const filterValue = btn.dataset.filter;
     const grid = document.querySelector('.certs-grid');
     grid.style.opacity = '0';
-    
+    grid.style.transition = 'opacity 0.25s ease';
+
     setTimeout(() => {
       certCards.forEach(card => {
         if (filterValue === 'all' || card.dataset.category === filterValue) {
@@ -213,47 +214,28 @@ filterBtns.forEach(btn => {
 });
 
 // ── Certificate Modal Viewer ──
-const modal        = document.getElementById('cert-modal');
-const modalIframe  = document.getElementById('cert-modal-iframe');
-const modalTitle   = document.getElementById('cert-modal-title');
-const modalDlLink  = document.getElementById('cert-modal-download');
-const modalClose   = document.querySelector('.cert-modal-close');
-const spinner      = document.querySelector('.cert-modal-spinner');
-
-// Click View Button
-document.querySelectorAll('.btn-view-cert').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const src = btn.dataset.src;
-    const card = btn.closest('.cert-card');
-    const title = card.querySelector('h3').textContent;
-    openCertModal(src, title);
-  });
-});
-
-// Click Card itself
-certCards.forEach(card => {
-  card.addEventListener('click', () => {
-    const btn = card.querySelector('.btn-view-cert');
-    if (btn) {
-      const src = btn.dataset.src;
-      const title = card.querySelector('h3').textContent;
-      openCertModal(src, title);
-    }
-  });
-  card.style.cursor = 'pointer';
-});
+const modal       = document.getElementById('cert-modal');
+const modalIframe = document.getElementById('cert-modal-iframe');
+const modalTitle  = document.getElementById('cert-modal-title');
+const modalDlLink = document.getElementById('cert-modal-download');
+const modalClose  = document.querySelector('.cert-modal-close');
+const spinner     = document.querySelector('.cert-modal-spinner');
 
 function openCertModal(src, title) {
   modalTitle.textContent = title;
   modalDlLink.href = src;
-  
-  spinner.style.display = 'block';
+
+  // Reset iframe
   modalIframe.classList.remove('loaded');
-  modalIframe.src = src;
-  
+  modalIframe.src = '';
+  spinner.style.display = 'block';
+
+  // Show modal first, then load src (prevents FOUC)
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
+
+  // Small delay so animation plays before heavy PDF loads
+  setTimeout(() => { modalIframe.src = src; }, 100);
 }
 
 function closeCertModal() {
@@ -262,19 +244,39 @@ function closeCertModal() {
   setTimeout(() => {
     modalIframe.src = '';
     modalIframe.classList.remove('loaded');
-  }, 350);
+    spinner.style.display = 'block';
+  }, 380);
 }
 
-modalClose.addEventListener('click', closeCertModal);
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) closeCertModal();
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal.classList.contains('open')) {
-    closeCertModal();
-  }
+// View button click — stop propagation so card click doesn't double-fire
+document.querySelectorAll('.btn-view-cert').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const card  = btn.closest('.cert-card');
+    const src   = btn.dataset.src;
+    const title = card.querySelector('h3').textContent;
+    openCertModal(src, title);
+  });
 });
 
+// Clicking the card itself also opens modal
+certCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const btn   = card.querySelector('.btn-view-cert');
+    const src   = btn.dataset.src;
+    const title = card.querySelector('h3').textContent;
+    openCertModal(src, title);
+  });
+});
+
+// Close triggers
+modalClose.addEventListener('click', closeCertModal);
+modal.addEventListener('click', e => { if (e.target === modal) closeCertModal(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && modal.classList.contains('open')) closeCertModal();
+});
+
+// Hide spinner when iframe loads
 modalIframe.addEventListener('load', () => {
   spinner.style.display = 'none';
   modalIframe.classList.add('loaded');
