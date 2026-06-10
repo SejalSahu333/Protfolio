@@ -16,11 +16,12 @@
   <nav id="navbar">
     <div class="nav-logo"><span class="lb">&lt;</span>Sejal<span class="lb">/&gt;</span></div>
     <ul class="nav-links">
-      <li><a href="#hero"     class="nav-link active">Home</a></li>
-      <li><a href="#about"    class="nav-link">About</a></li>
-      <li><a href="#skills"   class="nav-link">Skills</a></li>
-      <li><a href="#projects" class="nav-link">Projects</a></li>
-      <li><a href="#contact"  class="nav-link">Contact</a></li>
+      <li><a href="#hero"         class="nav-link active">Home</a></li>
+      <li><a href="#about"        class="nav-link">About</a></li>
+      <li><a href="#skills"       class="nav-link">Skills</a></li>
+      <li><a href="#certificates" class="nav-link">Certificates</a></li>
+      <li><a href="#projects"     class="nav-link">Projects</a></li>
+      <li><a href="#contact"      class="nav-link">Contact</a></li>
     </ul>
     <a href="mailto:sejalsahu705@gmail.com" class="btn btn-nav">Hire Me</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -232,11 +233,167 @@
     </div>
   </section>
 
-  <!-- ── PROJECTS ── -->
-  <section id="projects" class="section section-dark">
+  <!-- ── CERTIFICATES ── -->
+  <section id="certificates" class="section section-dark">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">// 04. Projects</span>
+        <span class="section-tag">// 04. Certificates</span>
+        <h2>My Credentials</h2>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="cert-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="embedded">Embedded &amp; MCUs</button>
+        <button class="filter-btn" data-filter="pcb">PCB &amp; Hardware</button>
+        <button class="filter-btn" data-filter="matlab">Simulation &amp; Software</button>
+        <button class="filter-btn" data-filter="other">Design &amp; Leadership</button>
+      </div>
+
+      <div class="certs-grid">
+        <!-- Card 1 -->
+        <div class="cert-card" data-category="embedded">
+          <div class="cert-card-icon">⚡</div>
+          <div class="cert-card-content">
+            <span class="cert-issuer-tag">Udemy</span>
+            <h3>Embedded System Using C</h3>
+            <p>Comprehensive course on Embedded C programming, register-level MCU interfacing, and hardware peripherals control.</p>
+            <div class="cert-meta-info">
+              <span class="cert-tech-chip">Embedded C</span>
+              <span class="cert-tech-chip">Firmware</span>
+            </div>
+            <button class="btn-view-cert" data-src="certificate/EmbeddedSystemUsingC.pdf">View Certificate</button>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="cert-card" data-category="embedded">
+          <div class="cert-card-icon">🤖</div>
+          <div class="cert-card-content">
+            <span class="cert-issuer-tag">Udemy</span>
+            <h3>Embedded Software Development with C</h3>
+            <p>Hands-on firmware development focusing on code structure, device drivers, interrupt processing, and low-power modes.</p>
+            <div class="cert-meta-info">
+              <span class="cert-tech-chip">C</span>
+              <span class="cert-tech-chip">MCU</span>
+            </div>
+            <button class="btn-view-cert" data-src="certificate/EmbeddedSoftwareDevelopmentwithC.pdf">View Certificate</button>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="cert-card" data-category="embedded">
+          <div class="cert-card-icon">🧠</div>
+          <div class="cert-card-content">
+            <span class="cert-issuer-tag">Udemy</span>
+            <h3>Embedded System On Arm</h3>
+            <p>Learnt ARM architecture foundations, execution modes, registers, memory maps, and assembly/C programming constructs.</p>
+            <div class="cert-meta-info">
+              <span class="cert-tech-chip">ARM Architecture</span>
+              <span class="cert-tech-chip">Bare-Metal</span>
+            </div>
+            <button class="btn-view-cert" data-src="certificate/EmbeddedSystemOnArm.pdf">View Certificate</button>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="cert-card" data-category="embedded">
+          <div class="cert-card-icon">🎯</div>
+          <div class="cert-card-content">
+            <span class="cert-issuer-tag">Udemy</span>
+            <h3>ARM Cortex (STM32)</h3>
+            <p>Deep dive into STM32 microcontrollers utilizing ARM Cortex-M architecture, writing drivers, and configuring timers/interrupts.</p>
+            <div class="cert-meta-info">
+              <span class="cert-tech-chip">STM32 Nucleo</span>
+              <span class="cert-tech-chip">Cortex-M</span>
+            </div>
+            <button class="btn-view-cert" data-src="certificate/ARMCortex(STM32).pdf">View Certificate</button>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="cert-card" data-category="pcb">
+          <div class="cert-card-icon">🛠️</div>
+          <div class="cert-card-content">
+            <span class="cert-issuer-tag">Udemy</span>
+            <h3>Mastering PCB Design</h3>
+            <p>Schematic capture, board layout design, component footprinting, multi-layer routing, and preparing manufacturing files (Gerber).</p>
+            <div class="cert-meta-info">
+              <span class="cert-tech-chip">KiCad / Altium</span>
+              <span class="cert-tech-chip">Hardware</span>
+            </div>
+            <button class="btn-view-cert" data-src="certificate/Mastering PCB Design.pdf">View Certificate</button>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="cert-card" data-category="pcb">
+          <div class="cert-card-icon">📡</div>
+          <div class="cert-card-content">
+            <span class="cert-issuer-tag">Udemy</span>
+            <h3>PCB CAD Design – Signal Routing</h3>
+            <p>Signal integrity principles, high-speed routing strategies, grounding layouts, and noise reduction in printed circuit boards.</p>
+            <div class="cert-meta-info">
+              <span class="cert-tech-chip">PCB CAD</span>
+              <span class="cert-tech-chip">Signal Integrity</span>
+            </div>
+            <button class="btn-view-cert" data-src="certificate/PCBCAD Design – Signal Routing.pdf">View Certificate</button>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="cert-card" data-category="matlab">
+          <div class="cert-card-icon">📊</div>
+          <div class="cert-card-content">
+            <span class="cert-issuer-tag">MathWorks</span>
+            <h3>MATLAB Onramp</h3>
+            <p>Fundamentals of MATLAB programming, matrix computations, data import and visualization, and custom plotting scripts.</p>
+            <div class="cert-meta-info">
+              <span class="cert-tech-chip">MATLAB</span>
+              <span class="cert-tech-chip">Data Analysis</span>
+            </div>
+            <button class="btn-view-cert" data-src="certificate/Matlab_certificate.pdf">View Certificate</button>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="cert-card" data-category="matlab">
+          <div class="cert-card-icon">📈</div>
+          <div class="cert-card-content">
+            <span class="cert-issuer-tag">MathWorks</span>
+            <h3>Simulink Onramp</h3>
+            <p>Dynamic system simulation, block diagram modeling, closed-loop controllers design, and visual model validation.</p>
+            <div class="cert-meta-info">
+              <span class="cert-tech-chip">Simulink</span>
+              <span class="cert-tech-chip">System Modeling</span>
+            </div>
+            <button class="btn-view-cert" data-src="certificate/Simulink_certificate.pdf">View Certificate</button>
+          </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="cert-card" data-category="other">
+          <div class="cert-card-icon">🎨</div>
+          <div class="cert-card-content">
+            <span class="cert-issuer-tag">Design</span>
+            <h3>LeptoQuark Logo Design</h3>
+            <p>Interactive brand identity showcase and vector-based logo graphics design representing the LeptoQuark particle theme.</p>
+            <div class="cert-meta-info">
+              <span class="cert-tech-chip">HTML/CSS</span>
+              <span class="cert-tech-chip">Graphic Design</span>
+            </div>
+            <button class="btn-view-cert" data-src="certificate/LeptoQuark Logo Design.html">View Design</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 05. Projects</span>
         <h2>Featured Work</h2>
       </div>
       <div class="projects-grid">
@@ -332,10 +489,10 @@
   </section>
 
   <!-- ── EDUCATION ── -->
-  <section id="education" class="section">
+  <section id="education" class="section section-dark">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">// 05. Education</span>
+        <span class="section-tag">// 06. Education</span>
         <h2>Academic Background</h2>
       </div>
       <div class="edu-grid">
@@ -380,10 +537,10 @@
   </section>
 
   <!-- ── CONTACT ── -->
-  <section id="contact" class="section section-dark">
+  <section id="contact" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">// 06. Contact</span>
+        <span class="section-tag">// 07. Contact</span>
         <h2>Let's Connect</h2>
       </div>
       <div class="contact-grid">
@@ -451,6 +608,21 @@
       </div>
     </div>
   </footer>
+
+  <!-- ── CERTIFICATE MODAL VIEWER ── -->
+  <div id="cert-modal" class="cert-modal-overlay">
+    <div class="cert-modal-container">
+      <button class="cert-modal-close" aria-label="Close modal">&times;</button>
+      <div class="cert-modal-header">
+        <h3 id="cert-modal-title">Certificate Viewer</h3>
+        <a id="cert-modal-download" href="#" target="_blank" class="btn btn-outline" download>Open in New Tab ↗</a>
+      </div>
+      <div class="cert-modal-body">
+        <div class="cert-modal-spinner"></div>
+        <iframe id="cert-modal-iframe" src="" frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
 
   <div id="cursor-dot"></div>
   <div id="cursor-ring"></div>

@@ -19,7 +19,7 @@ document.addEventListener('mousemove', e => {
   ring.style.top  = ringY + 'px';
   requestAnimationFrame(animateRing);
 })();
-document.querySelectorAll('a,button,.skill-card,.project-card,.tag,.edu-card,.tl-card').forEach(el => {
+document.querySelectorAll('a,button,.skill-card,.project-card,.tag,.edu-card,.tl-card,.cert-card').forEach(el => {
   el.addEventListener('mouseenter', () => { ring.style.width='54px'; ring.style.height='54px'; ring.style.borderColor='rgba(0,229,195,0.8)'; });
   el.addEventListener('mouseleave', () => { ring.style.width='38px'; ring.style.height='38px'; ring.style.borderColor='rgba(0,229,195,0.5)'; });
 });
@@ -127,7 +127,7 @@ let frame = 0;
 })();
 
 // ── Scroll Reveal ──
-document.querySelectorAll('.skill-card,.project-card,.tl-card,.edu-card,.about-grid,.contact-grid,.section-header')
+document.querySelectorAll('.skill-card,.project-card,.tl-card,.edu-card,.about-grid,.contact-grid,.section-header,.cert-card,.cert-filters')
   .forEach(el => el.classList.add('reveal'));
 
 new IntersectionObserver((entries) => {
@@ -184,6 +184,100 @@ document.getElementById('contact-form').addEventListener('submit', e => {
     btn.textContent = 'Send Message ✉️'; btn.disabled = false;
     setTimeout(() => { fb.textContent = ''; fb.className = 'form-feedback'; }, 5000);
   }, 1500);
+});
+
+// ── Certificates Filtering ──
+const filterBtns = document.querySelectorAll('.filter-btn');
+const certCards  = document.querySelectorAll('.cert-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filterValue = btn.dataset.filter;
+    const grid = document.querySelector('.certs-grid');
+    grid.style.opacity = '0';
+    
+    setTimeout(() => {
+      certCards.forEach(card => {
+        if (filterValue === 'all' || card.dataset.category === filterValue) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      grid.style.opacity = '1';
+    }, 250);
+  });
+});
+
+// ── Certificate Modal Viewer ──
+const modal        = document.getElementById('cert-modal');
+const modalIframe  = document.getElementById('cert-modal-iframe');
+const modalTitle   = document.getElementById('cert-modal-title');
+const modalDlLink  = document.getElementById('cert-modal-download');
+const modalClose   = document.querySelector('.cert-modal-close');
+const spinner      = document.querySelector('.cert-modal-spinner');
+
+// Click View Button
+document.querySelectorAll('.btn-view-cert').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const src = btn.dataset.src;
+    const card = btn.closest('.cert-card');
+    const title = card.querySelector('h3').textContent;
+    openCertModal(src, title);
+  });
+});
+
+// Click Card itself
+certCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const btn = card.querySelector('.btn-view-cert');
+    if (btn) {
+      const src = btn.dataset.src;
+      const title = card.querySelector('h3').textContent;
+      openCertModal(src, title);
+    }
+  });
+  card.style.cursor = 'pointer';
+});
+
+function openCertModal(src, title) {
+  modalTitle.textContent = title;
+  modalDlLink.href = src;
+  
+  spinner.style.display = 'block';
+  modalIframe.classList.remove('loaded');
+  modalIframe.src = src;
+  
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCertModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => {
+    modalIframe.src = '';
+    modalIframe.classList.remove('loaded');
+  }, 350);
+}
+
+modalClose.addEventListener('click', closeCertModal);
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) closeCertModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('open')) {
+    closeCertModal();
+  }
+});
+
+modalIframe.addEventListener('load', () => {
+  spinner.style.display = 'none';
+  modalIframe.classList.add('loaded');
 });
 
 // ── Typing Effect ──
