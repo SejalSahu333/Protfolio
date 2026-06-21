@@ -12,10 +12,22 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 </head>
 
 <body>
+  <div id="tsparticles"></div>
+
+  <div id="progress-bar"></div>
+  <div id="loader">
+    <h1>Sejal Sahu</h1>
+    <p>Embedded Systems & Software Engineer</p>
+    <p class="loader-sub">Building Intelligent Embedded Solutions</p>
+    <div class="loader-line"></div>
+  </div>
 
   <!-- ── NAV ── -->
   <nav id="navbar">
@@ -32,6 +44,8 @@
     <a href="sejal_resume.pdf" target="_blank" class="btn btn-nav">
       Resume ↗
     </a>
+    <button id="themeToggle" class="theme-btn">🌙</button>
+
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -710,8 +724,25 @@
         <p>Designed with <span class="heart">❤</span> using HTML, CSS & JavaScript</p>
       </div>
     </footer>
+    <div class="social-float">
+      <a href="https://linkedin.com/in/sejal-sahu-9280b0287" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
 
+      <a href="https://github.com/SejalSahu333" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+
+      <a href="mailto:sejalsahu705@gmail.com">
+        <i class="fas fa-envelope"></i>
+      </a>
+
+      <a href="https://wa.me/91XXXXXXXXXX" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
     <script src="main.js"></script>
+
 </body>
 
 </html>

@@ -339,4 +339,102 @@ window.addEventListener("scroll", () => {
       link.classList.add("active");
     }
   });
+}); const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+
+  if (document.body.classList.contains("light-mode")) {
+    themeToggle.textContent = "☀️";
+  } else {
+    themeToggle.textContent = "🌙";
+  }
+}); const hiddenElements = document.querySelectorAll(".timeline-item, .edu-card");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, {
+  threshold: 0.2
 });
+
+hiddenElements.forEach((el) => observer.observe(el));
+window.addEventListener("scroll", () => {
+
+  let scrollTop = document.documentElement.scrollTop;
+
+  let scrollHeight =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+
+  let progress = (scrollTop / scrollHeight) * 100;
+
+  document.getElementById("progress-bar").style.width =
+    progress + "%";
+
+}); window.addEventListener("load", () => {
+
+  setTimeout(() => {
+
+    document.getElementById("loader").style.opacity = "0";
+
+    setTimeout(() => {
+      document.getElementById("loader").style.display = "none";
+    }, 1000);
+
+  }, 2000);
+
+}); tsParticles.load("tsparticles", {
+  fullScreen: { enable: false },
+  particles: {
+    number: {
+      value: 60
+    },
+    color: {
+      value: ["#00e5c3", "#7c83ff", "#f472b6"]
+    },
+    links: {
+      enable: true,
+      color: "#00e5c3",
+      opacity: 0.2,
+      distance: 150
+    },
+    move: {
+      enable: true,
+      speed: 1
+    },
+    opacity: {
+      value: 0.5
+    },
+    size: {
+      value: { min: 2, max: 5 }
+    }
+  },
+
+  interactivity: {
+    events: {
+      onHover: {
+        enable: true,
+        mode: "grab"
+      },
+      onClick: {
+        enable: true,
+        mode: "push"
+      }
+    },
+    modes: {
+      grab: {
+        distance: 180,
+        links: {
+          opacity: 0.6
+        }
+      },
+      push: {
+        quantity: 4
+      }
+    }
+  }
+}); 
