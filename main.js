@@ -3,25 +3,25 @@
    ==================================================== */
 
 // ── Custom Cursor ──
-const dot  = document.getElementById('cursor-dot');
+const dot = document.getElementById('cursor-dot');
 const ring = document.getElementById('cursor-ring');
 let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
 
 document.addEventListener('mousemove', e => {
   mouseX = e.clientX; mouseY = e.clientY;
   dot.style.left = mouseX + 'px';
-  dot.style.top  = mouseY + 'px';
+  dot.style.top = mouseY + 'px';
 });
 (function animateRing() {
   ringX += (mouseX - ringX) * 0.12;
   ringY += (mouseY - ringY) * 0.12;
   ring.style.left = ringX + 'px';
-  ring.style.top  = ringY + 'px';
+  ring.style.top = ringY + 'px';
   requestAnimationFrame(animateRing);
 })();
 document.querySelectorAll('a,button,.skill-card,.project-card,.tag,.edu-card,.tl-card,.cert-card').forEach(el => {
-  el.addEventListener('mouseenter', () => { ring.style.width='54px'; ring.style.height='54px'; ring.style.borderColor='rgba(0,229,195,0.8)'; });
-  el.addEventListener('mouseleave', () => { ring.style.width='38px'; ring.style.height='38px'; ring.style.borderColor='rgba(0,229,195,0.5)'; });
+  el.addEventListener('mouseenter', () => { ring.style.width = '54px'; ring.style.height = '54px'; ring.style.borderColor = 'rgba(0,229,195,0.8)'; });
+  el.addEventListener('mouseleave', () => { ring.style.width = '38px'; ring.style.height = '38px'; ring.style.borderColor = 'rgba(0,229,195,0.5)'; });
 });
 
 // ── Navbar scroll ──
@@ -41,17 +41,17 @@ document.getElementById('hamburger').addEventListener('click', () => {
   const ul = document.querySelector('.nav-links');
   const isOpen = ul.style.display === 'flex';
   Object.assign(ul.style, {
-    display: isOpen ? 'none' : 'flex', flexDirection:'column',
-    position:'absolute', top:'66px', left:'0', right:'0',
-    background:'rgba(7,9,15,0.97)', padding:'24px 6%',
-    backdropFilter:'blur(20px)', zIndex:'999',
-    borderBottom:'1px solid rgba(100,220,200,0.12)'
+    display: isOpen ? 'none' : 'flex', flexDirection: 'column',
+    position: 'absolute', top: '66px', left: '0', right: '0',
+    background: 'rgba(7,9,15,0.97)', padding: '24px 6%',
+    backdropFilter: 'blur(20px)', zIndex: '999',
+    borderBottom: '1px solid rgba(100,220,200,0.12)'
   });
 });
 
 // ── Circuit Canvas ──
 const canvas = document.getElementById('circuit-canvas');
-const ctx    = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');
 function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
@@ -59,25 +59,25 @@ window.addEventListener('resize', resizeCanvas);
 class Node {
   constructor() { this.reset(); }
   reset() {
-    this.x  = Math.random() * canvas.width;
-    this.y  = Math.random() * canvas.height;
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
     this.vx = (Math.random() - 0.5) * 0.35;
     this.vy = (Math.random() - 0.5) * 0.35;
-    this.r  = Math.random() * 2.5 + 1;
+    this.r = Math.random() * 2.5 + 1;
     this.pulse = Math.random() * Math.PI * 2;
     this.color = Math.random() > 0.5 ? '#00e5c3' : '#7c83ff';
   }
   update() {
     this.x += this.vx; this.y += this.vy;
     this.pulse += 0.022;
-    if (this.x < 0 || this.x > canvas.width)  this.vx *= -1;
-    if (this.y < 0 || this.y > canvas.height)  this.vy *= -1;
+    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
   }
   draw() {
     const g = Math.sin(this.pulse) * 0.5 + 0.5;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.r + g, 0, Math.PI * 2);
-    ctx.fillStyle = this.color + Math.floor((0.4 + g * 0.5) * 255).toString(16).padStart(2,'0');
+    ctx.fillStyle = this.color + Math.floor((0.4 + g * 0.5) * 255).toString(16).padStart(2, '0');
     ctx.shadowColor = this.color; ctx.shadowBlur = 8 * g;
     ctx.fill(); ctx.shadowBlur = 0;
   }
@@ -86,9 +86,9 @@ class Node {
 const nodes = Array.from({ length: 52 }, () => new Node());
 
 class Packet {
-  constructor(n1, n2) { this.n1=n1; this.n2=n2; this.t=0; this.speed=0.011+Math.random()*0.009; }
+  constructor(n1, n2) { this.n1 = n1; this.n2 = n2; this.t = 0; this.speed = 0.011 + Math.random() * 0.009; }
   update() { this.t += this.speed; }
-  done()   { return this.t >= 1; }
+  done() { return this.t >= 1; }
   draw() {
     const x = this.n1.x + (this.n2.x - this.n1.x) * this.t;
     const y = this.n1.y + (this.n2.y - this.n1.y) * this.t;
@@ -104,11 +104,11 @@ let frame = 0;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   frame++;
   for (let i = 0; i < nodes.length; i++) {
-    for (let j = i+1; j < nodes.length; j++) {
+    for (let j = i + 1; j < nodes.length; j++) {
       const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
-      const d  = Math.sqrt(dx*dx + dy*dy);
+      const d = Math.sqrt(dx * dx + dy * dy);
       if (d < 155) {
-        const a = (1 - d/155) * 0.32;
+        const a = (1 - d / 155) * 0.32;
         ctx.beginPath();
         ctx.moveTo(nodes[i].x, nodes[i].y);
         ctx.lineTo(nodes[i].x, nodes[j].y);
@@ -119,7 +119,7 @@ let frame = 0;
     }
   }
   nodes.forEach(n => { n.update(); n.draw(); });
-  for (let i = packets.length-1; i >= 0; i--) {
+  for (let i = packets.length - 1; i >= 0; i--) {
     packets[i].update(); packets[i].draw();
     if (packets[i].done()) packets.splice(i, 1);
   }
@@ -137,13 +137,13 @@ new IntersectionObserver((entries) => {
       entry.target._obs?.unobserve(entry.target);
     }
   });
-}, { threshold: 0.08 }).observe = (function(orig) {
-  return function(el) { el._obs = this; orig.call(this, el); };
+}, { threshold: 0.08 }).observe = (function (orig) {
+  return function (el) { el._obs = this; orig.call(this, el); };
 })(IntersectionObserver.prototype.observe);
 
 const revObs = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
-    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i*75); revObs.unobserve(e.target); }
+    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 75); revObs.unobserve(e.target); }
   });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
@@ -175,7 +175,7 @@ document.querySelectorAll('.stat-num').forEach(c => cntObs.observe(c));
 document.getElementById('contact-form').addEventListener('submit', e => {
   e.preventDefault();
   const btn = document.getElementById('send-btn');
-  const fb  = document.getElementById('form-feedback');
+  const fb = document.getElementById('form-feedback');
   btn.textContent = 'Sending…'; btn.disabled = true;
   setTimeout(() => {
     fb.textContent = '✅ Message sent! Sejal will get back to you soon.';
@@ -188,7 +188,7 @@ document.getElementById('contact-form').addEventListener('submit', e => {
 
 // ── Certificates Filtering ──
 const filterBtns = document.querySelectorAll('.filter-btn');
-const certCards  = document.querySelectorAll('.cert-card');
+const certCards = document.querySelectorAll('.cert-card');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -214,12 +214,12 @@ filterBtns.forEach(btn => {
 });
 
 // ── Certificate Modal Viewer ──
-const modal       = document.getElementById('cert-modal');
+const modal = document.getElementById('cert-modal');
 const modalIframe = document.getElementById('cert-modal-iframe');
-const modalTitle  = document.getElementById('cert-modal-title');
+const modalTitle = document.getElementById('cert-modal-title');
 const modalDlLink = document.getElementById('cert-modal-download');
-const modalClose  = document.querySelector('.cert-modal-close');
-const spinner     = document.querySelector('.cert-modal-spinner');
+const modalClose = document.querySelector('.cert-modal-close');
+const spinner = document.querySelector('.cert-modal-spinner');
 
 function openCertModal(src, title) {
   modalTitle.textContent = title;
@@ -252,8 +252,8 @@ function closeCertModal() {
 document.querySelectorAll('.btn-view-cert').forEach(btn => {
   btn.addEventListener('click', e => {
     e.stopPropagation();
-    const card  = btn.closest('.cert-card');
-    const src   = btn.dataset.src;
+    const card = btn.closest('.cert-card');
+    const src = btn.dataset.src;
     const title = card.querySelector('h3').textContent;
     openCertModal(src, title);
   });
@@ -262,8 +262,8 @@ document.querySelectorAll('.btn-view-cert').forEach(btn => {
 // Clicking the card itself also opens modal
 certCards.forEach(card => {
   card.addEventListener('click', () => {
-    const btn   = card.querySelector('.btn-view-cert');
-    const src   = btn.dataset.src;
+    const btn = card.querySelector('.btn-view-cert');
+    const src = btn.dataset.src;
     const title = card.querySelector('h3').textContent;
     openCertModal(src, title);
   });
@@ -285,22 +285,58 @@ modalIframe.addEventListener('load', () => {
 // ── Typing Effect ──
 const tag = document.getElementById('typing-tag');
 const phrases = [
-  '// Hello, I\'m Sejal 👋',
-  '// Embedded Systems Engineer',
-  '// Firmware Developer',
+  '// Embedded Systems & Software',
+  '// Firmware Development',
+  '// Hardware Design & PCB Layout',
   '// STM32 · ESP32 · RTOS',
-  '// PCB Designer & IoT Builder',
-  '// NCC Under Officer 🎖️',
 ];
 let pi = 0, ci = 0, del = false;
 function type() {
   const cur = phrases[pi];
   tag.textContent = del ? cur.slice(0, --ci) : cur.slice(0, ++ci);
   if (!del && ci === cur.length) { del = true; setTimeout(type, 1800); return; }
-  if (del && ci === 0)  { del = false; pi = (pi+1) % phrases.length; }
+  if (del && ci === 0) { del = false; pi = (pi + 1) % phrases.length; }
   setTimeout(type, del ? 42 : 78);
 }
 type();
 
 console.log('%c⚡ Sejal Sahu | Embedded Systems Engineer', 'color:#00e5c3;font-size:15px;font-weight:bold;');
 console.log('%c📧 sejalsahu705@gmail.com | 🐙 github.com/SejalSahu93', 'color:#7c83ff;font-size:11px;');
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    scrollTopBtn.style.display = "block";
+  } else {
+    scrollTopBtn.style.display = "none";
+  }
+});
+
+scrollTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}); const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 120;
+    const sectionHeight = section.clientHeight;
+
+    if (scrollY >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+});
